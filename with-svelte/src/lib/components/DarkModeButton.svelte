@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { darkmode } from '$lib/stores/darkmode';
+	import { slide } from 'svelte/transition';
 	import Moon from './svg/Moon.svelte';
 	import Sun from './svg/Sun.svelte';
+
+	let inTransition = { duration: 400, delay: 500 };
+	let outTransition = { duration: 400 };
 
 	const toggleDarkMode = () => {
 		if ($darkmode) {
@@ -18,8 +22,12 @@
 
 <button class="dark:text-yellow-200 p-2 text-purple-800" on:click={toggleDarkMode}>
 	{#if $darkmode}
-		<Sun class="fill-current h-8 w-8" />
+		<div in:slide={inTransition} out:slide={outTransition}>
+			<Sun class="fill-current h-8 w-8" />
+		</div>
 	{:else}
-		<Moon class="fill-current h-8 w-8" />
+		<div in:slide={inTransition} out:slide={outTransition}>
+			<Moon class="fill-current h-8 w-8" />
+		</div>
 	{/if}
 </button>
