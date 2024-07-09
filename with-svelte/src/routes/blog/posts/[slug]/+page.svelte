@@ -1,4 +1,5 @@
 <script lang="ts">
+	import "./prism-night-owl.css";
 	import type { PageData } from "./$types";
 
 	export let data: PageData;
