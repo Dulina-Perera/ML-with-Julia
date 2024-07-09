@@ -6,7 +6,7 @@
 
 <ThemeInitializer>
 	<MainHeader />
-	<main>
+	<main class="max-w-5xl mx-auto pt-24">
 		<slot />
 	</main>
 </ThemeInitializer>

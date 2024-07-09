@@ -7,5 +7,7 @@
 </script>
 
 <article>
-	<Post />
+	<div class="dark:prose-invert max-w-none prose px-4 py-4">
+		<Post />
+	</div>
 </article>
