@@ -3,6 +3,6 @@ export const formatPublishedAt = (date: string) => {
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
-		timeZone: 'UTC'
+		timeZone: 'UTC',
 	});
 };

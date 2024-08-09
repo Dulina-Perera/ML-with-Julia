@@ -10,6 +10,6 @@ export const load: PageLoad = async ({ params }) => {
 
 	return {
 		metadata: markdownPost.metadata,
-		post: markdownPost.default
-	}
-}
+		post: markdownPost.default,
+	};
+};

@@ -20,7 +20,10 @@
 	};
 </script>
 
-<button class="dark:text-yellow-200 p-2 text-purple-800" on:click={toggleDarkMode}>
+<button
+	class="dark:text-yellow-200 p-2 text-purple-800"
+	on:click={toggleDarkMode}
+>
 	{#if $darkmode}
 		<div in:slide={inTransition} out:slide={outTransition}>
 			<Sun class="fill-current h-8 w-8" />

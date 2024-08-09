@@ -1,14 +1,17 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount } from 'svelte';
 	import CopyCodeButton from '$lib/components/CopyCodeButton.svelte';
 
 	onMount(() => {
-		const preTags: HTMLCollectionOf<HTMLPreElement> = document.getElementsByTagName('pre');
+		const preTags: HTMLCollectionOf<HTMLPreElement> =
+			document.getElementsByTagName('pre');
 
 		for (let preTag of preTags) {
 			const classList = Array.from(preTag.classList);
 
-			const isCodeBlock = classList.some((className) => className.startsWith('language-'));
+			const isCodeBlock = classList.some((className) =>
+				className.startsWith('language-')
+			);
 
 			if (isCodeBlock) {
 				const preTagParent = preTag.parentNode;
@@ -17,7 +20,7 @@
 				newCodeBlockWrapper.className = 'relative';
 
 				new CopyCodeButton({
-					target: newCodeBlockWrapper
+					target: newCodeBlockWrapper,
 				});
 
 				if (preTagParent) {
