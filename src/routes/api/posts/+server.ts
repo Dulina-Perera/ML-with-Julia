@@ -4,7 +4,10 @@ import type { Post, PostMetadata } from '$lib/types';
 const getPosts = async (): Promise<Post[]> => {
 	const posts: Post[] = [];
 
-	const paths: Record<string, { metadata: PostMetadata }> = import.meta.glob('/src/posts/*.md', { eager: true });
+	const paths: Record<string, { metadata: PostMetadata }> = import.meta.glob(
+		'/src/posts/*.md',
+		{ eager: true }
+	);
 
 	for (const path in paths) {
 		const file = paths[path];
@@ -16,18 +19,21 @@ const getPosts = async (): Promise<Post[]> => {
 			if (slug && metadata.is_published) {
 				posts.push({
 					...metadata,
-					slug
+					slug,
 				});
 			}
 		}
 	}
 
 	posts.sort((first, second) => {
-		return new Date(second.published_at).getTime() - new Date(first.published_at).getTime();
+		return (
+			new Date(second.published_at).getTime() -
+			new Date(first.published_at).getTime()
+		);
 	});
 
 	return posts;
-}
+};
 
 export const GET: RequestHandler = async () => {
 	const posts = await getPosts();

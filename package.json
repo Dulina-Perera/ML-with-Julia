@@ -40,6 +40,7 @@
 	"dependencies": {
 		"@fontsource/jetbrains-mono": "^5.0.21",
 		"@fontsource/manrope": "^5.0.21",
-		"lucide-svelte": "^0.428.0"
+		"lucide-svelte": "^0.428.0",
+		"url": "^0.11.4"
 	}
 }
